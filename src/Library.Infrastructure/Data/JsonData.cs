@@ -18,6 +18,10 @@ public class JsonData
     private readonly string _patronsPath;
     private readonly string _loansPath;
 
+    public Book? SearchBookByTitle(string title)
+    {
+        return Books?.FirstOrDefault(b => b.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+    }
     public JsonData(IConfiguration configuration)
     {
         var section = configuration.GetSection("JsonPaths");
